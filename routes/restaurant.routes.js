@@ -5,10 +5,6 @@ const {
 const { errorHandler } = require("../handlers/error.handler");
 const { getNearbyRestaurant } = require("../controllers/restaurant.controller");
 
-router.get(
-  "/nearby",
-  getNearbyRestaurantValidator(),
-  errorHandler(getNearbyRestaurant)
-);
+router.get("/nearby", getNearbyRestaurantValidator(), getNearbyRestaurant);
 
 module.exports = router;

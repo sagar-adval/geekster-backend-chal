@@ -15,8 +15,9 @@ const client = new Geocoding({
 const classifyPoint = require("robust-point-in-polygon");
 
 const getNearbyRestaurant = async (req, res, next) => {
+  console.log(req.query);
   try {
-    let geocodedAddress = await client.forward(req.body.address);
+    let geocodedAddress = await client.forward(req.query.address);
     for (let i = 0; i < location.length; i++) {
       if (location[i].geometry.type === "Polygon") {
         let restaurantExists = classifyPoint(
